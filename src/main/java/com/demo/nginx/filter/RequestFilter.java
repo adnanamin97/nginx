@@ -1,6 +1,5 @@
 package com.demo.nginx.filter;
 
-import com.demo.nginx.controller.NginxController;
 import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,16 +12,17 @@ import java.io.IOException;
 @Component
 public class RequestFilter implements Filter {
 
-    Logger logger = LoggerFactory.getLogger(NginxController.class);
+    Logger logger = LoggerFactory.getLogger(RequestFilter.class);
 
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        logger.info("Filtering requests init");
+        logger.info("init filter");
     }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+
        HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
        HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
